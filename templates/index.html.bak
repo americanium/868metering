@@ -1,0 +1,32 @@
+<h1><TMPL_VAR NAME=T::BASIC.HEADING_BASICSETTINGS></h1>
+<TMPL_VAR frmStart>
+
+<label id="lblUSBDevice"><TMPL_VAR lblUSBDevice></Label>
+<TMPL_VAR txtUSBDevice>
+
+<label id="lblMQTTServerUsername"><TMPL_VAR lblMQTTServerUsername></Label>
+<TMPL_VAR txtMQTTServerUsername>
+
+<label id="lblMQTTServerPassword"><TMPL_VAR lblMQTTServerPassword></Label>
+<TMPL_VAR txtMQTTServerPassword>
+
+<label id="lblMQTTServerIP"><TMPL_VAR lblMQTTServerIP></Label>
+<TMPL_VAR txtMQTTServerIP>
+
+<label id="lblMQTTServerPort"><TMPL_VAR lblMQTTServerPort></Label>
+<TMPL_VAR txtMQTTServerPort>
+
+<label id="lblMQTTServerTopic"><TMPL_VAR lblMQTTServerTOpic></Label>
+<TMPL_VAR txtMQTTServerTopic>
+
+<TMPL_VAR btnSave>
+
+<!-- per Javascript dem Element das "data-role"-Attribut hinzufügen -->
+<script>
+// Add some attributes PERL::CGI doesn't provide
+$('select[name=selectlist]').attr('data-role','flipswitch');
+</script>
+
+<TMPL_VAR frmEnd>
+
+<p><TMPL_VAR FOOTER.GREETING></p>
