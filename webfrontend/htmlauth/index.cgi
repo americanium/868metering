@@ -168,16 +168,14 @@ my $output1 = qx(wmbusmeters --usestdoutforlogging --exitafter=30s auto:t1>$lbpt
 #my @daten = <DATEI>;
 #close (DATEI);
 
-my $daten;
+#my $daten;
 
-open (DATEI, "$lbptemplatedir/test.dat") or die $!;
-   while(<DATEI>){
-     $daten = $daten.$_;
- }
-  $daten =~ s/\n/<br>/;
-close (DATEI);
-
-
+open (DATEI, "<$lbptemplatedir/test.dat") or die $!;
+   my $daten= LoxBerry::System::read_file("$lbptemplatedir/test.dat");
+   close (DATEI);	
+if (!$daten) { print "Scheisse, nicht erfolgreich" } else { print "Alles suppi!" }
+$daten =~ s/\n/<br>/;
+$template->param( DIEDATENAUSDEMFILE => $daten );
 
 # Wir erzeugen eine Select-Liste mit 2 Einträgen für ON und OFF
 @values = ('1', '0' );
@@ -220,7 +218,7 @@ print "Testtext\n";
 # selected discovering time.
 # ---------------------------------------------------
 
-print "$daten";
+#print "$daten";
 
 # Nun wird das Template ausgegeben.
 print $template->output();
